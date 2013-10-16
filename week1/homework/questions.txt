@@ -3,54 +3,21 @@ Chapter 3 Classes, Objects, and Variables
 p.86-90 Strings (Strings section in Chapter 6 Standard Types)
 
 1. What is an object?
-
-An object is a representation of a real-world thing. The thing that an object models can be physical (Person) or abstract (GPSCoordinate). The object will have many values associated with it.
-
-For example, a GPSCoordinate object might have longitude, lattitude, and altitude. There can be many different GPSCoordinate objects to represent different palces around the world.
-
-
+An object is a representation in memory of a specific concept or thing that the Ruby interpreter knows about. 
 
 2. What is a variable?
-
-You can think of a variable as a placeholder or a bucket to hold on to some arbitrary value and store it for later access. For example, you might want to hold on to a number representing someone's age. You can assign a value to the `age` variable (the variable `age` shall hold the value 30). And you can then later access the `age` varaible (what was the value of the `age` variable?).
-
-
+A variable is a name for a location in memory. It can contain, or point to, any type of object.
 
 3. What is the difference between an object and a class?
-
-A class is a model of a real-world concept. A class is a single instance of a concept. For example we could have a class called DigialPhoto to represent the general idea or concept of digital photos. While not all digital photos are the same, they do have many similar attributes such as width, height, date taken, pixel count, etc.
-
-We have an instance the DigitalPhoto class for each photo taken. They might all have different values, but they all have the same kinds of values (width may be differnet, but they will all have a width).
-
-Classes also can have methods thorugh which we access information about or perform some operation on that object. Dog.bark, Duck.quack, and Pig.oink could be operations on objects to make those objects do something.
-
-
+An object is an instance of a class, or a specific thing of that class's type in memory. The class is the specifics that are common to all things of that type. The classification of a concept or a thing is a class. A specific thing or concept of a class's type in memory is an object. For example: All books have titles (Class). This book's title is "Harry Potter and the Goblet of Fire" (Object). 
 
 4. What is a String?
-
-A string is a sequence of zero ("".class returns String) or more textual characters such as letters and numbers. They also can hold "invisible" characters like spaces, tabs, and line breaks.
-
-Strings can be used to represent human language ("Hello, my name is Marty"), or things that you could write down ("http://tumblr.com" or "1600 Pennsylvania Avenue"). They can also hold the contents of a file.
-
-
+A string is how Ruby understands text. It is a collection of characters (Bytes), and can be created by making an instance of the String class (String.new) or as a string literal ("",'', %Q[]).
 
 5. What are three messages that I can send to a string object? Hint: think methods
-
-`length`, `sub`, and `upcase!`
-
-- length returns the number of characters in the string object it is called on.
-
-- sub takes a regex pattern and a substitution string. It returns a copy of the original string with the FIRST occurence matching the regex replaced with the specified replacement string. If you want to match and replace all occurences, use gsub.
-
-- upcase! makes the string uppercase. It returns nil if there was no work to do on the string (it was already all uppercase characters). If you don't want to modify the original string, use upcase without the ! ("howdy".upcase).
-
-
-
+chomp! - removes newline characters, or the specified characters, from the end of a string
+strip! - removes leading or trailing whitespace from a string
+split  - returns an array of strings made up of the original string separated on whitespace or the specified characters or regexp
 
 6. What are two ways of defining a String literal? Bonus: What is the difference between the two?
-
-- Use quotes (single or double). If you use double quotes, you can have expression evaluation using #{}. Any code inside the pound-curlies will be evalueated and the result included in the returned string value. "One plus two equals #{(1+2)}" will produce the string "One plus two equals 3".
-
-- Use "Here Document". Start this with two less-than signs followed by a delimiter. (<<STRING_DELIMITER). Anything that comes between the opening delimiter and the next occurence of the delimiter will be treated as the returned string value. The ending delimiter normally should not have any whitespace before it. If you want to allow whitespace before the ending delimiter put a minus between it and the less-than signs (<<-DELIMITER).
-
-
+Single quotes ex: '' and Double quotes ex: "". The single quotes allow for 2 escape characters: \' and \\ . The double quoted string literal allows for many different escaped special characters (like \n is a line break) and allows for string interpolation, or the injection of evaluated Ruby code into the string ex: "Hello #{my_name}". The single quoted string takes up much less memory than a double quoted string with interpolation. Without interpolation, both are about the same.
